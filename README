@@ -1,0 +1,64 @@
+
+********************************
+3D-Modeling Application
+	developed by deCampos A.
+********************************
+
+This application is designed for making 3D models out of simple Three Dimensional Draftings, which can be loaded from existing data or captured with the camera.
+
+1. Components
+
+Consists of the main file "3d_modeling.c", auxiliary image file "00.pbm", and Makefile. Compilation can also be made directly with " gcc -fopenmp -o 3d_modeling 3d_modeling.c  -lglut -lGLU -lGL `pkg-config opencv --cflags` `pkg-config opencv --libs` "
+Program Execution save files to "00f.pbm", "00r.pbm", "00u.pbm", and potentially also to "0pic1.ppm", "0pic2.ppm", "0pic3.ppm", "0data1.pbm", "0data2.pbm" and "0data3.pbm".
+
+2.How to use
+
+2.1. Modes
+
+2.1.1. Loading mode
+
+Loads up to three Images to create the 3-dimensional model.
+
+When initializing the application, INPUT the FILE NAME for FRONT view, RIGHT view and UP view images, in this order.
+Use SQUARE-SIZED IMAGES for maintaining proportions.
+
+When LESS THAN THREE Images are designed, the program will AUTOMATICALLY LOAD "00.pbm", an entirely black bitmat image, for the pendant arguments.
+
+
+2.1.2. Capture mode
+
+Create a 3-dimensional model out of pictures taken by the camera device, that will be then used as the FRONT, RIGHT and UP images, in this order.
+
+For this mode, initialize the application WITHOUT ANY variables.
+
+During the capture, PRESS ENTER for SAVING the current image, SPACE for SKIPPING a shot, or ESCAPE for EXITING. 
+"00.pbm" will be AUTOMATICALLY LOAD for filling up skipped shots.
+
+
+2.1.3. Edit mode
+
+Loads up to three Images for THRESHOLDING, and then use this Images in the creation of the 3-dimensional model.
+
+For this mode, TYPE "edit" and then up to three FILE NAMES when initializing the application.
+
+During the editing, PRESS ENTER for SAVING or ESCAPE for EXITING.
+
+
+2.2 Rendering Quality
+
+For better Rendering quality, INCREASE the value of "SIZE", defined in the 11th line of the program. Each vortex has arrest size of 4/SIZE. When using values below 100, UPDATE HEADER's value to 13 (11th line).
+
+Excessively high SIZE values will cause heavy excecution and/or compile error.
+
+
+2.3 Tips
+
+For better results, ALIGN every input Image, and ,for shapes well defined with only 2 parameters, use AUTOLOADING of "00.pbm".
+
+When unnable to get satisfactory results from THRESHOLDING, try editing the images directly with other IMAGE EDITING APPLICATIONS. 
+CAPTURED Images can be found in "0pic1.ppm", "0pic2.ppm" and "0pic3.ppm"; and THRESHOLDED Images in "0data1.pbm", "0data2.pbm" and "0data3.pbm". 
+
+
+					Free use and distribution
+---------------------------------------------------------------------
+
